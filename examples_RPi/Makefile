@@ -27,13 +27,13 @@ endif
 
 
 # define all programs
-PROGRAMS = rx-test helloworld_rx helloworld_tx
+PROGRAMS = rx-test helloworld_rx helloworld_tx transfer_rx
 SOURCES = ${PROGRAMS:=.cpp}
 
 all: ${PROGRAMS}
 
 ${PROGRAMS}: ${SOURCES}
-	g++ ${CCFLAGS} -Wall -I../ -lrf24-bcm -lrf24network $@.cpp -o $@
+	g++ ${CCFLAGS} -Wall -I../ -pthread -lrf24-bcm -lrf24network $@.cpp -o $@
 
 clean:
 	rm -rf $(PROGRAMS)
